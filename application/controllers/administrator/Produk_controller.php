@@ -140,42 +140,33 @@ class Produk_controller extends CI_Controller
   }
 
   private function _ubah_produk($id)
-{
+  {
     $data = [
-        'nama' => ucwords($this->input->post('nama_produk')),
-        'categori_id' => $this->input->post('kategori_produk'),
-        'harga' => $this->input->post('harga_produk'),
-        'stok' => $this->input->post('stok_produk'),
-        'deskripsi' => ucfirst($this->input->post('deskripsi_produk'))
+      'nama'        => ucwords($this->input->post('nama_produk')),
+      'categori_id' => $this->input->post('kategori_produk'),
+      'harga'       => $this->input->post('harga_produk'),
+      'stok'        => $this->input->post('stok_produk'),
+      'deskripsi'   => ucfirst($this->input->post('deskripsi_produk'))
     ];
 
-    // Update data teks produk ke database
-    $ubah = $this->produk_model->ubah($data, $id);
+    $this->produk_model->ubah($data, $id);
 
-    // Cek apakah ada file gambar baru yang di-upload
-    $count = count($_FILES['gambar_produk']['name']);
-    if ($count > 0 && !empty($_FILES['gambar_produk']['name'][0])) {
-        // Jika ada gambar baru, panggil fungsi upload gambar
-        $this->_produk_gambar_upload($count, $id);
+    // FITUR TAMBAHAN TUGAS: Upload gambar baru saat ubah produk
+    if (!empty($_FILES['gambar_produk']['name'][0])) {
+      $count = count($_FILES['gambar_produk']['name']);
+      $this->_produk_gambar_upload($count, $id);
     }
 
-    if ($ubah || ($count > 0 && !empty($_FILES['gambar_produk']['name'][0]))) {
-        $this->session->set_flashdata('message', '
-            <div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert">
-                <div>Berhasil mengubah produk!!</div>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        ');
-    } else {
-        $this->session->set_flashdata('message', '
-            <div class="alert alert-danger d-flex align-items-center alert-dismissible fade show" role="alert">
-                <div>Gagal mengubah produk!!!</div>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        ');
-    }
+    $this->session->set_flashdata('message', '
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            Berhasil mengubah produk!!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>');
+
     redirect('admin/produk');
-}
+  }
 
   public function hapus_gambar($id_gambar, $id_produk)
   {

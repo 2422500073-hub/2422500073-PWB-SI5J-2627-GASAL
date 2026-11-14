@@ -49,20 +49,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'administrator/Admin_dashboard_controller';
+$route['default_controller'] = 'Dashboard';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+// Route Pelanggan 
+$route['login'] = 'Pelanggan_controller/login';
+$route['register'] = 'Pelanggan_controller/register';
+$route['logout'] = 'Pelanggan_controller/logout';
+$route['profil'] = 'Pelanggan_controller/profil';
+// Route Admin
 $route['admin'] = 'administrator/Admin_dashboard_controller/index';
 $route['admin/login'] = 'administrator/Admin_auth_controller/index';
 $route['admin/logout'] = 'administrator/Admin_auth_controller/logout';
+
 // admin kategori
 $route['admin/kategori'] = 'administrator/kategori_controller/index';
 $route['admin/kategori/tambah'] = 'administrator/kategori_controller/tambah_kategori';
 $route['admin/kategori/hapus/(:num)'] = 'administrator/kategori_controller/hapus_kategori/$1';
 $route['admin/kategori/ubah/(:num)'] = 'administrator/kategori_controller/ubah_kategori/$1';
+
 // Route Produk
 $route['admin/produk'] = 'administrator/Produk_controller/index';
 $route['admin/produk/tambah'] = 'administrator/Produk_controller/tambah_produk';
 $route['admin/produk/ubah/(:num)'] = 'administrator/Produk_controller/ubah_produk/$1';
 $route['admin/produk/hapus/(:num)'] = 'administrator/Produk_controller/hapus_produk/$1';
 $route['admin/produk/hapus_gambar/(:num)/(:num)'] = 'administrator/Produk_controller/hapus_gambar/$1/$2';
+
+// Route Ekspedisi 
+$route['admin/Ekspedisi'] = 'administrator/Ekspedisi2422500073_controller/index';
+$route['admin/Ekspedisi/tambah'] = 'administrator/Ekspedisi2422500073_controller/tambah';
+$route['admin/Ekspedisi/tambah_aksi'] = 'administrator/Ekspedisi2422500073_controller/tambah_aksi';
+$route['admin/Ekspedisi/edit/(:num)'] = 'administrator/Ekspedisi2422500073_controller/edit/$1';
+$route['admin/Ekspedisi/update_aksi'] = 'administrator/Ekspedisi2422500073_controller/update_aksi';
+$route['admin/Ekspedisi/hapus/(:num)'] = 'administrator/Ekspedisi2422500073_controller/hapus/$1';

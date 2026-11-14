@@ -48,7 +48,7 @@
                 </div>
 
                 <div class="form-group mb-3">
-                  <label for="harga_produk" class="form-label">Harga</label>
+                  <label for="harga_produk" class="form-label">Harga Sewa</label>
                   <div class="input-group">
                     <div class="input-group-prepend"><span class="input-group-text">Rp</span></div>
                     <input type="number" name="harga_produk" id="harga_produk" class="form-control" value="<?= $produk['harga'] ?>" required>

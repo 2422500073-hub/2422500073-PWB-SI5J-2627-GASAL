@@ -1,47 +1,22 @@
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Starter Page</h1>
-                </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Starter Page</li>
-                    </ol>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-    <!-- Main content -->
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
+class Dashboard extends CI_Controller {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('produk_model');
+        $this->load->model('produk_kategori_model');
+        $this->load->model('produk_gambar_model');
+    }
 
-                            <p class="card-text">
-                                Some quick example text to build on the card title and make up the bulk of the card's content.
-                            </p>
-
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.col-md-6 -->
-            </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container-fluid -->
-    </div>
-    <!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
+    public function index()
+    {
+        $data['gambar_model'] = $this->produk_gambar_model;
+        $data['list_produk'] = $this->produk_model->get_all();
+        $this->load->view('ecom/template/header', $data);
+        $this->load->view('ecom/template/carausel');
+        $this->load->view('ecom/home', $data);
+        $this->load->view('ecom/template/footer');
+    }
+}

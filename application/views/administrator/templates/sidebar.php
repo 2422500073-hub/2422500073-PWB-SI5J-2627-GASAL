@@ -8,7 +8,7 @@
          class="brand-image img-circle elevation-3"
          style="opacity: .8">
 
-    <span class="brand-text font-weight-light">SUCCI | SHOP</span>
+    <span class="brand-text font-weight-light">CAMPRENT SUCI</span>
   </a>
 
   <!-- Sidebar -->
@@ -89,7 +89,16 @@
 
               </a>
             </li>
+            <!-- Ekspedisi -->
+            <li class="nav-item">
+              <a href="<?= base_url() ?>admin/Ekspedisi"
+                 class="nav-link">
 
+                <i class="far fa-circle nav-icon"></i>
+
+                <p>Ekspedisi</p>
+              </a>
+            </li>
           </ul>
 
         </li>

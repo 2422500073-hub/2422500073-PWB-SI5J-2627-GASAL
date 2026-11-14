@@ -1,6 +1,4 @@
-<?php
-
-/** @var array $list_produk */ ?>
+<?php /** @var array $list_produk */ ?>
 <div class="content-wrapper">
   <div class="content-header">
     <div class="container-fluid">
@@ -24,10 +22,12 @@
         <div class="col-lg-12">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title font-weight-bold d-block mb-3">Semua Produk</h5>
-              <div class="mb-3">
+              
+              <!-- Judul dan Tombol di bawahnya -->
+              <h4 class="font-weight-bold mb-2"> Daftar Produk</h4>
+              <div class="mb-4">
                 <a href="<?= base_url('admin/produk/tambah') ?>" class="btn btn-primary">
-                  <i class="fa fa-plus"></i> Produk
+                  <i class="fa fa-plus"></i> Tambah Produk
                 </a>
               </div>
 
@@ -41,7 +41,7 @@
                     <th>No</th>
                     <th>Nama</th>
                     <th>Kategori</th>
-                    <th>Harga</th>
+                    <th>Harga Sewa</th>
                     <th>Stok</th>
                     <th>Deskripsi</th>
                     <th width="15%">Action</th>
