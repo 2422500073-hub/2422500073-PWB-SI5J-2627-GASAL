@@ -83,3 +83,6 @@ $route['admin/Ekspedisi/tambah_aksi'] = 'administrator/Ekspedisi2422500073_contr
 $route['admin/Ekspedisi/edit/(:num)'] = 'administrator/Ekspedisi2422500073_controller/edit/$1';
 $route['admin/Ekspedisi/update_aksi'] = 'administrator/Ekspedisi2422500073_controller/update_aksi';
 $route['admin/Ekspedisi/hapus/(:num)'] = 'administrator/Ekspedisi2422500073_controller/hapus/$1';
+// Route Produk ecom
+$route['produk'] = 'produk_controller/detail';
+$route['produk/(:num)'] = 'produk_controller/detail/$1';
